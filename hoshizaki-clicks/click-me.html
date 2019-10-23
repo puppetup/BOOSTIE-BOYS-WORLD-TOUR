@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Click Me</title>
+    <link href="_css/site.css" rel="stylesheet">
+    <style>
+        #clk {
+            width: 300px;
+            height: 200px;
+            background-color: #f7f756;
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid #000000;
+        }
+        #dblclk {
+            width: 300px;
+            height: 200px;
+            background-color: #8BF764;
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid #000000;
+        }
+        #noclick {
+            width: 300px;
+            height: 200px;
+            background-color: #00E2FF;
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid #000000;
+        }
+        #areas {
+            font-family: Arial, Helvetica, sans-serif;
+            float: right;
+        }
+    </style>
+    <script src="_js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var message='';
+            $('div#clk').mouseover(function(){
+                message='Good, now click once right there.';
+                var p=$('<p></p>').text(message);
+                $('div.main').append(p);
+            }); // end mouseover 1
+            $('div#clk').click(function(){
+                message='Ahh, that hits the spot.';
+                var p=$('<p></p>').text(message);
+                $('div.main').append(p);
+            }); //end click
+            $('div#dblclk').mouseover(function(){
+                message='Good, now double-click right there.';
+                var p=$('<p></p>').text(message);
+                $('div.main').append(p);
+            }); //end mouseover 2
+            $('div#dblclk').dblclick(function(){
+                message='Two clicks, twice as good.';
+                var p=$('<p></p>').text(message);
+                $('div.main').append(p);
+            }); // end dblclk
+            $('div#noclick').mouseover(function(){
+                message="I said don't put your mouse there!";
+                var p=$('<p></p>').text(message);
+                $('div.main').append(p);
+                $(this).css('background-color','#FF0000');
+            }); // end mouse over noclick
+            $('div#noclick').mouseout(function(){
+                message="That's better. Now let's try it again.";
+                var p=$('<p></p>').text(message);
+                $('div.main').append(p);
+                $(this).css('background-color','#00E2FF');
+            }); // end mouse off noclick
+        }); //end ready
+    </script>
+</head>
+
+<body id="events">
+    <div class="wrapper">
+        <header>
+            JAVASCRIPT <span class="amp">&amp;</span> jQUERY: THE&nbsp;MISSING&nbsp;MANUAL
+        </header>
+        <div class="content">
+            <div class="main">
+                <h1>You are invited to an event</h1>
+                <div id="areas">
+                    <div id="clk">Feel free to click here</div>
+                    <div id="dblclk">You are welcome to double-click here</div>
+                    <div id="noclick">But whatever you do, do not put your mouse here!</div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>Based on Exercises from JavaScript &amp; jQuery: The Missing Manual, 3rd Edition, by <a href="http://sawmac.com/">David McFarland</a>. This exercise by Gerry Clark.</p>
+        </footer>
+    </div>
+</body>
+</html>
